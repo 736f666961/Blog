@@ -1,0 +1,63 @@
+.middle-line{
+    width: 2px;
+    height: 300px;
+    margin-top: 60px !important;
+}
+
+.main-color{
+    background-color: #6c757d !important;
+}
+
+/* .dropdown{
+    position: absolute !important;
+    top: 0;
+    right: 0;
+} */
+
+nav{
+    width: 100%
+}
+nav ul .list{
+    margin-left: 33.33%;
+    width:210px
+}
+nav ul .list .link{
+    width:193px
+}
+
+#dropdownMenu2::after{
+    content: none !important;
+    
+}
+
+.dots{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.card-image{
+    margin-top: 60px;
+}
+
+.show:focus{
+    border: 1px solid black;
+    outline: none;
+}
+
+.btn.focus, .btn:focus{
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+#userimage{
+    position: absolute;
+    left: 0 !important; 
+    display: flex;
+    margin-top: 10px;
+}
+
+#userimage span{
+    margin-left: 10px;
+}
+
