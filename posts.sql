@@ -13,10 +13,11 @@ CREATE TABLE `posts` (
   `post_title` varchar(255) DEFAULT NULL,
   `post_body` varchar(255) DEFAULT NULL,
   `post_image` varchar(255) DEFAULT NULL,
+  `written_by` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`),
   CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 
 
