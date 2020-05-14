@@ -85,7 +85,7 @@
         // echo "Else: Db password: " . $row['password'] . "<br>";
         $error = "<div class='alert alert-danger' role='alert'>
                     <strong>Error!</strong> 
-                    <a class='alert-link'>Change a few things up</a> and try submitting again.
+                    <a class='alert-link'>try submitting again.</a>
                 </div>";
         $_SESSION['signin_errors'] = $error;
         // echo "Else: You are not log in <br>";
