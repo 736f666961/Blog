@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $_SESSION['username'] = null;
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,6 +14,13 @@
     </head>
     <body>
         <div class="container mt-4">
+            <?php 
+                if (!isset($_SESSION['signin_errors'])){
+                    echo "";
+                }else{
+                    echo $_SESSION['signin_errors'];
+                }
+            ?>
             <div class="row">
                 <div class="container col-sm-12 col-md-6 col-lg-4">
                     <h2 class="text-muted">Sign Up</h2>

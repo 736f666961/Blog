@@ -24,7 +24,7 @@
             echo 'Email Address is Already In Use.';
             
         }else{
-            echo 'Email Address seems new !';
+            // echo 'Email Address seems new !';
             $sql = "INSERT INTO users (fullname, email, password) VALUES ('" . $safeName . "',". "'" . $safeEmail . "'," . "'" . $safePassword . "')";
             
             $_SESSION['username'] = $fullname;

@@ -61,3 +61,8 @@ nav ul .list .link{
     margin-left: 10px;
 }
 
+.fa-angle-down:before {
+    content: "\f107";
+    font-size: 13px;
+    margin-left: 2px;
+}
