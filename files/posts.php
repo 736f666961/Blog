@@ -2,8 +2,6 @@
     // Resume Session
     session_start();
 
-    // $_SESSION['username'];
-
     // Import Coonection file
     require_once('connection.php');
 
@@ -23,7 +21,7 @@
         <title>Blog - Posts</title>
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -79,7 +77,7 @@
                                  <a class='dropdown-item' href='edit_posts.php?EditPid=" . $row['id'] . "'>Edit</a>
                                  <a class='dropdown-item' href='delete_post.php?deletePid=" . $row['id'] . "'>Delete</a>
                              </div>
-                         </div><a href='" . $row['id'] . "'style='height : 400px'><img class='card-img-top card-image w-100 h-75'" . "src=" .$row['post_image'] . "alt='#'></a>". "
+                         </div><a href=post_details.php?detailId=" . $row['id'] . " style='height : 400px'><img class='card-img-top card-image w-100 h-75'" . "src=" .$row['post_image'] . "alt='#'></a>". "
                                      
                                  <div class='card-body'> 
                                      <h2 style='margin-top:-25px' class='card-title text-center text-muted'>" . $row['post_title'] . "</h2>             
@@ -94,7 +92,7 @@
                                 <img width='29' height='29' style='border-radius: 50%;' src='https://images.pexels.com/photos/2253415/pexels-photo-2253415.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' alt=''>
                                 <span>" . $row['written_by'] . "</span>" .
                             "</div>" . 
-                                "<a href='" . $row['id'] . "' style='height : 400px'><img class='card-img-top card-image w-100 h-75'" . "src=" .$row['post_image'] . "alt='#'></a>". "
+                                "<a href=post_details.php?detailId=" . $row['id'] . " style='height : 400px'><img class='card-img-top card-image w-100 h-75'" . "src=" .$row['post_image'] . "alt='#'></a>". "
                                     
                                 <div class='card-body'> 
                                     <h2 style='margin-top:-25px' class='card-title text-center text-muted'>" . $row['post_title'] . "</h2>             
