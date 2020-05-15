@@ -1,6 +1,8 @@
 <?php
     session_start();
     $_SESSION['username'] = null;
+    $_SESSION['postID'] = null;
+    $_SESSION['email'] = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -28,7 +28,7 @@
               <li class="nav-item list">
                         <div class='dropdown'>
                             <button class='btn dropdown-toggle' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                <span class="text-white nav-item">Sofia</span>
+                                <span class="text-white nav-item"><?php echo $_SESSION['username'] ?></span>
                             </button>
                             <div class='dropdown-menu' aria-labelledby='dropdownMenu2'>
                                 <a class='dropdown-item' href='logout.php'>Logout</a>

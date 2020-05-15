@@ -27,7 +27,8 @@
             // echo 'Email Address seems new !';
             $sql = "INSERT INTO users (fullname, email, password) VALUES ('" . $safeName . "',". "'" . $safeEmail . "'," . "'" . $safePassword . "')";
             
-            $_SESSION['username'] = $fullname;
+            $_SESSION['username'] = $safeName;
+            $_SESSION['email'] = $safeEmail;
 
             // execute query aka insert data
             mysqli_query($connection->__construct(), $sql);

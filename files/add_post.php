@@ -17,16 +17,33 @@
     $safeBody = mysqli_real_escape_string($connection->__construct(), $postBody);
     $safeImage = mysqli_real_escape_string($connection->__construct(), $postImage);
 
-    // Query for insert data into table
-    $sql = "INSERT INTO posts (post_id, post_title, post_body, post_image, written_by) VALUES ('" . $_SESSION['postID'] . "'," . "'" . $safeTitle . "',". "'" . $safeBody . "'," . "'" . $safeImage . "',". "'" . $_SESSION['username'] . "');";
+    // Get Post id from users table
+    $email = $_SESSION['email'];
+    $getPid = "SELECT user_id, email FROM users WHERE email='$email';";
 
-    // execute query aka insert data
-    mysqli_query($connection->__construct(), $sql) or die("Error " . mysqli_error($connection->__construct()));;
+    // Debugging
+    // echo $getPid;
 
-    // close connection
-    $connection->__construct()->close();
+    $getPidResult = mysqli_query($connection->__construct(), $getPid);
+    while ($row = mysqli_fetch_array($getPidResult)){
+        if ($row['email'] == $email){
+            $_SESSION['postID'] = $row['user_id'];
+            // Query for insert data into table
+            $sql = "INSERT INTO posts (post_id, post_title, post_body, post_image, written_by) VALUES ('" . $_SESSION['postID'] . "'," . "'" . $safeTitle . "',". "'" . $safeBody . "'," . "'" . $safeImage . "',". "'" . $_SESSION['username'] . "');";
+            
+            // echo $sql;
 
-    // Redirect to 
-    header("Location: posts.php");
+            // echo "<br> Done <br>";
+            // execute query aka insert data
+            mysqli_query($connection->__construct(), $sql) or die("Error " . mysqli_error($connection->__construct()));;
+
+            // close connection
+            $connection->__construct()->close();
+
+            // Redirect to 
+            header("Location: posts.php");
+        }
+    }
+    // $sql = "INSERT INTO publication (user_id, image, description, date, title, category) VALUES (['" . $_SESSION['postID'] . '],' . '[' . $image . '],'. '[' . $description . '],' . '[' . $date . '],'. '[' . $title . '],'. '[' . $category . ']\');';
 ?>
 

@@ -9,8 +9,6 @@
 
     // Define Connection
     $connection = new Connection();
-
-    $_SESSION['postID'] = 1;
     
     $username = $_SESSION['username'];
 
