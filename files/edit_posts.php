@@ -1,8 +1,10 @@
 <?php 
     session_start(); 
-    // echo $_GET['EditPid'];
+
     // Import connection file
     require_once('connection.php');
+    require_once('preventAccess.php');
+
 
     // Define connection 
     $connection = new Connection();

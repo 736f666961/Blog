@@ -6,6 +6,7 @@
 
     // Import setterGetterData File
     require_once('setterGetterData.php');
+    require_once('preventAccess.php');
 
     // import class we need
     $setGetData = new setterGetterData();

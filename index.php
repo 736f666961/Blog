@@ -3,8 +3,6 @@
     $_SESSION['username'] = null;
     $_SESSION['postID'] = null;
     $_SESSION['email'] = null;
-    define('included',TRUE);
-    require_once('files/preventAccess.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

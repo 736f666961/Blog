@@ -3,6 +3,8 @@
 
     // Import connection file
     require_once('connection.php');
+    require_once('preventAccess.php');
+
 
     // Define connection 
     $connection = new Connection();
@@ -31,9 +33,6 @@
             // Query for insert data into table
             $sql = "INSERT INTO posts (post_id, post_title, post_body, post_image, written_by) VALUES ('" . $_SESSION['postID'] . "'," . "'" . $safeTitle . "',". "'" . $safeBody . "'," . "'" . $safeImage . "',". "'" . $_SESSION['username'] . "');";
             
-            // echo $sql;
-
-            // echo "<br> Done <br>";
             // execute query aka insert data
             mysqli_query($connection->__construct(), $sql) or die("Error " . mysqli_error($connection->__construct()));;
 
@@ -44,6 +43,6 @@
             header("Location: posts.php");
         }
     }
-    // $sql = "INSERT INTO publication (user_id, image, description, date, title, category) VALUES (['" . $_SESSION['postID'] . '],' . '[' . $image . '],'. '[' . $description . '],' . '[' . $date . '],'. '[' . $title . '],'. '[' . $category . ']\');';
+   
 ?>
 

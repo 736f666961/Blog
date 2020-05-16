@@ -1,7 +1,7 @@
 <?php 
-    if(!defined('included')){
-        header("HTTP/1.0 403 Forbidden");
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        // redirect them to your desired location
         header('location: 403.php');
-        exit();
-     }
+    exit;
+}
 ?>
