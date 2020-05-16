@@ -4,20 +4,29 @@
     // Import Coonection file
     require_once('connection.php');
 
-    // Get data from user
-    $fullname = $_POST["fullname"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    // Import setterGetterData File
+    require_once('setterGetterData.php');
+
+    // import class we need
+    $setGetData = new setterGetterData();
+
+    // Set data got from user
+    $setGetData->setName($_POST["fullname"]);
+    $setGetData->setEmail($_POST["email"]);
+    $setGetData->setPassword($_POST["password"]);
 
     // Check user data
-    if (preg_match("/^([a-zA-Z]+)$/", $fullname) && filter_var($email, FILTER_VALIDATE_EMAIL) && ($password != null || $password != "")){
+    if (preg_match("/^([a-zA-Z]+)$/", $setGetData->getName()) && 
+        filter_var($setGetData->getEmail(), FILTER_VALIDATE_EMAIL) && 
+        ($setGetData->getPassword() != null || $setGetData->getPassword() != "")){
+
         // Define Connection
         $connection = new Connection();
         
-        // Make data safe from injection
-        $safeName = mysqli_real_escape_string($connection->__construct(), $fullname);
-        $safeEmail = mysqli_real_escape_string($connection->__construct(), $email);
-        $safePassword = mysqli_real_escape_string($connection->__construct(), $password);
+        // Get data and make it safe from injection
+        $safeName = mysqli_real_escape_string($connection->__construct(), $setGetData->getName());
+        $safeEmail = mysqli_real_escape_string($connection->__construct(), $setGetData->getEmail());
+        $safePassword = mysqli_real_escape_string($connection->__construct(), $setGetData->getPassword());
 
         // Check if email is not alreafy exists
         if ($connection->checkEmailExistence($safeEmail)){         
@@ -39,10 +48,6 @@
             // Redirect to 
             header("Location: posts.php");
         }
-
-
-
-        // echo $safeName . "<br/>" . $safeEmail . "<br/>" .$safePassword;
     }else{
         // echo "Data does not match !";
     }

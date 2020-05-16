@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="../img/logo.png"  type="image/x-icon">
     </head>
     <body>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -63,9 +64,9 @@
                       <img class='h-100 w-100' src='" . $row['post_image'] . "' alt=''>
                   </div>
                   <div class='col-md-4 col-lg-4'>
-                      <h1 class='text-center text-muted'>" . $row['post_title'] . "</h1>
+                      <h1 class='text-center text-muted text-capitalize'>" . $row['post_title'] . "</h1>
                       <p>" . $row['post_body'] . "</p>
-                      <p><strong>Written by : </strong><i class=''>" . $row['written_by'] . "</i></p>
+                      <p><strong>Written by : </strong><i class='text-capitalize'>" . $row['written_by'] . "</i></p>
                     </div>
                 </div>
               </div>

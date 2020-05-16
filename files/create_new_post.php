@@ -7,6 +7,7 @@
         <title>Blog - Create new post</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
+        <link rel="shortcut icon" href="../img/logo.png"  type="image/x-icon">
     </head>
     <body>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">

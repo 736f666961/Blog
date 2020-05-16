@@ -3,6 +3,8 @@
     $_SESSION['username'] = null;
     $_SESSION['postID'] = null;
     $_SESSION['email'] = null;
+    define('included',TRUE);
+    require_once('files/preventAccess.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +15,8 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/media.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <link rel="shortcut icon" href="img/logo.png"  type="image/x-icon">
     </head>
     <body>
         <div class="container mt-4">

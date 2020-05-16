@@ -1,4 +1,4 @@
-<?php 
+<?php
     session_start();
     
     $_SESSION['signin_errors'] = null;
@@ -6,63 +6,52 @@
     // Import Coonection file
     require_once('connection.php');
 
-    // Get data from user
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    // Import setterGetterData File
+    require_once('setterGetterData.php');
 
-    // // Define Connection
+    // import class we need
+    $setGetData = new setterGetterData();
+
+    // Set data got from user
+    $setGetData->setEmail($_POST["email"]);
+    $setGetData->setPassword($_POST["password"]);
+
+    // Define Connection
     $connection = new Connection();
 
-    // Find email and password
-    $sql = "SELECT * FROM users WHERE email='$email';";
-    // echo $sql . "<br>";
-    // echo "Executing <br>";
-    // Execute qeury for finding email and password
-    $user = mysqli_query($connection->__construct(), $sql);
-    // echo "Executed ! <br>";
+    // Get email
+    $email = $setGetData->getEmail();
 
+    // Find email 
+    $sql = "SELECT * FROM users WHERE email='$email';";
+
+    // Execute command "Find Email"
+    $user = mysqli_query($connection->__construct(), $sql);
+
+    // Check at least there's one row AKA user exists
     if (mysqli_num_rows($user) > 0){
         while($row = mysqli_fetch_array($user)){
-            // echo "In Loop ! <br>";
-            if ($row['email'] == $email && $row['password'] == $password){
-                // echo "If: Login in <br>";
-                // echo "If: User  email : " . $email . "<br>";
-                // echo "If: Db Email: " . $row['email'] . "<br>";
+            // Check if data match
+            if ($row['email'] == $setGetData->getEmail() && $row['password'] == $setGetData->getPassword()){
+                // Set super global variables AkA session
                 $_SESSION['username'] = $row['fullname'];
                 $_SESSION['email'] = $row['email'];
-                // echo "Username: " . $row['fullname'];
+
+                // Redirect to posts page
                 header("Location: posts.php");
-            }//else{
-                // echo "Else: User  email : " . $email . "<br>";
-                // echo "Else: Db Email: " . $row['email'] . "<br>";
-                
-                // echo "Else: User  password : " . $password . "<br>";
-                // echo "Else: Db password: " . $row['password'] . "<br>";
-                
-                // echo "Else: You are not log in <br>";
-    
-                // // Redirect to home page aka login page
-                // header("Location: ../index.html");
-            //}
+            }
         }
     }else{
-        // echo "Else: User  email : " . $email . "<br>";
-        // echo "Else: Db Email: " . $row['email'] . "<br>";
-        
-        // echo "Else: User  password : " . $password . "<br>";
-        // echo "Else: Db password: " . $row['password'] . "<br>";
+        // Set error when login data does not exists
         $error = "<div class='alert alert-danger' role='alert'>
                     <strong>Error!</strong> 
-                    <a class='alert-link'>try submitting again.</a>
+                    <a class='alert-link'>incorrect email and password</a> Try submitting again.
                 </div>";
         $_SESSION['signin_errors'] = $error;
-        // echo "Else: You are not log in <br>";
-        header("Location: ../index.php");
-        echo "sasas";
-    }
 
-    // echo "------------- After Loop --------------- <br>";
-    // echo "Username: " . $_SESSION['username'];
+        // Redirect to home page
+        header("Location: ../index.php");
+    }
 
     // close connection
     $connection->__construct()->close();

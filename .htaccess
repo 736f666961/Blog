@@ -1,0 +1,14 @@
+# Set Main Page 
+# DirectoryIndex index.php
+
+# Hide the Following Extensions Files
+# IndexIgnore *.php *.png *.css
+
+# Hide all 
+Options -Indexes
+
+# Redirect to 403 page
+ErrorDocument 403 http://localhost/newBlog/files/403.php
+ErrorDocument 404 http://localhost/newBlog/files/404.php
+
+

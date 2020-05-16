@@ -4,6 +4,7 @@
 
     // Import Coonection file
     require_once('connection.php');
+    require_once('preventAccess.php');
 
     // Define Connection
     $connection = new Connection();
@@ -20,11 +21,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Blog - Posts</title>
         <link rel="stylesheet" href="../css/style.css">
+        <link rel="shortcut icon" href="../img/logo.png"  type="image/x-icon">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <nav class="navbar sticky-top navbar-expand-md bg-dark navbar-dark">
             <a class="navbar-brand" href="posts.php">Blog</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon"></span>
@@ -68,7 +70,7 @@
                              <div class='card' style='height : 430px'>
                              <div class='container' id='userimage'>
                                  <img width='29' height='29' style='border-radius: 50%;' src='https://images.pexels.com/photos/2253415/pexels-photo-2253415.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' alt=''>
-                                 <span>" . $row['written_by'] . "</span>" .
+                                 <span class='text-capitalize'>" . $row['written_by'] . "</span>" .
                              "</div><div class='dropdown' style='position:absolute;top:0; right:0;'>
                              <button class='btn dropdown-toggle' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                  <span class='dots'>...</span>
@@ -80,7 +82,7 @@
                          </div><a href=post_details.php?detailId=" . $row['id'] . " style='height : 400px'><img class='card-img-top card-image w-100 h-75'" . "src=" .$row['post_image'] . "alt='#'></a>". "
                                      
                                  <div class='card-body'> 
-                                     <h2 style='margin-top:-25px' class='card-title text-center text-muted'>" . $row['post_title'] . "</h2>             
+                                     <h2 style='margin-top:-25px' class='card-title text-center text-muted text-capitalize'>" . $row['post_title'] . "</h2>             
                                  </div>
                                  </div>
                      </div>";
@@ -90,12 +92,12 @@
                             <div class='card' style='height : 430px'>
                             <div class='container' id='userimage'>
                                 <img width='29' height='29' style='border-radius: 50%;' src='https://images.pexels.com/photos/2253415/pexels-photo-2253415.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' alt=''>
-                                <span>" . $row['written_by'] . "</span>" .
+                                <span class='text-capitalize'>" . $row['written_by'] . "</span>" .
                             "</div>" . 
                                 "<a href=post_details.php?detailId=" . $row['id'] . " style='height : 400px'><img class='card-img-top card-image w-100 h-75'" . "src=" .$row['post_image'] . "alt='#'></a>". "
                                     
                                 <div class='card-body'> 
-                                    <h2 style='margin-top:-25px' class='card-title text-center text-muted'>" . $row['post_title'] . "</h2>             
+                                    <h2 style='margin-top:-25px' class='card-title text-center text-muted text-capitalize'>" . $row['post_title'] . "</h2>             
                                 </div>
                                 </div>
                     </div>";
